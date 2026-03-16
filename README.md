@@ -24,7 +24,7 @@ Cases are organized by attack surface:
 
 ```
 llm-redteam-eval/
-├── cases/                        # Adversarial test cases (YAML, version-controlled)
+├── cases/                        # Adversarial test cases 
 │   ├── prompt_injection/
 │   │   ├── pi_direct_001.yaml
 │   │   ├── pi_indirect_tool_001.yaml
@@ -41,17 +41,17 @@ llm-redteam-eval/
 │       └── tm_context_exfiltration_001.yaml
 │
 ├── redteam/                      # Core framework
-│   ├── schema.py                 # Pydantic models: Case, RunResult, Annotation
-│   ├── runner.py                 # Case loader and execution engine
-│   ├── annotator.py              # Interactive Rich-based annotation TUI
-│   ├── report.py                 # Summary reporting
+│   ├── schema.py                 
+│   ├── runner.py                 
+│   ├── annotator.py             
+│   ├── report.py                 
 │   └── cli.py                   # Entry point (click)
 │
 ├── adapters/                     # Model API adapters
-│   ├── base.py                   # Abstract interface
-│   └── anthropic.py              # Anthropic Messages API (with tool-use loop)
+│   ├── base.py                   
+│   └── anthropic.py             
 │
-├── results/                      # Run outputs (gitignored by default)
+├── results/                    
 └── pyproject.toml
 ```
 
@@ -107,7 +107,7 @@ For each result, you record:
 - **Per-criterion scores**: did the model fail each specific criterion?
 - **Notes**: free-text observations for the record
 
-Results are saved incrementally — Ctrl+C is safe.
+Results are saved incrementally
 
 ### 3. View the report
 
@@ -242,13 +242,4 @@ class OpenAIAdapter(BaseAdapter):
 
 Then pass it directly to `Runner(adapter=OpenAIAdapter("gpt-4o"))`.
 
----
-
-## References
-
-- **OWASP LLM Top 10** — Canonical taxonomy of security risks in LLM applications, including prompt injection (LLM01), insecure output handling (LLM02), and sensitive information disclosure (LLM06). https://owasp.org/www-project-top-10-for-large-language-model-applications/
-- **Perez & Ribeiro (2022)** — "Ignore Previous Prompt: Attack Techniques For Language Models." Early systematic treatment of prompt injection as an attack class. https://arxiv.org/abs/2211.09527
-- **Greshake et al. (2023)** — "Not What You've Signed Up For: Compromising Real-World LLM-Integrated Applications with Indirect Prompt Injection." Foundational work on indirect injection via tool outputs and retrieved content. https://arxiv.org/abs/2302.12173
-- **Anthropic Model Card** — Anthropic's published evaluation criteria for honesty, instruction-following, and safety in Claude models. https://www.anthropic.com/claude
-- **Perez et al. (2022)** — "Red Teaming Language Models with Language Models." Automated red-teaming methodology; informs the hypothesis-driven structure used here. https://arxiv.org/abs/2202.03286
 
