@@ -6,17 +6,6 @@ A structured, reproducible framework for discovering, documenting, and reusing f
 modes in LLM systems. Designed to mirror real red-team workflows: define hypotheses, run
 cases, capture outputs, apply human judgment, track failures over time.
 
----
-
-## Key Features
-
-- **Hypothesis-driven**: each test case encodes a specific, falsifiable claim about model behavior
-- **Taxonomized**: failures are categorized by attack surface and root cause, not just collected
-- **Reproducible**: cases are version-controlled YAML; results are structured JSON
-- **Human-in-the-loop**: automated runs capture outputs; humans label failures with reasoning
-- **Longitudinal**: running the same suite against new model versions reveals regressions and improvements
-
----
 
 ## Failure Taxonomy
 
